@@ -12,7 +12,7 @@ public class ValidacaoHorarioComercial implements RegraValidacao {
             ItemEstoque itemEstoque = estoque.recupera(produto.getCodigo());
             if (itemEstoque == null)
                 throw new SistVendasException(SistVendasException.Causa.PRODUTO_NAO_CADASTRADO_ESTOQUE);
-            if (itemEstoque.disponivel(quantidade))
+            if (!itemEstoque.disponivel(quantidade))
                 throw new SistVendasException(SistVendasException.Causa.QUANTIDADE_INSUFICIENTE);
         }
     }
