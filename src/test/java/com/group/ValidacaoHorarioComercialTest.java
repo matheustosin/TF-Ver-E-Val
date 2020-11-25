@@ -28,7 +28,7 @@ public class ValidacaoHorarioComercialTest {
         when(estoque.recupera(30)).thenReturn(new ItemEstoque(30, 3));
         when(estoque.recupera(50)).thenReturn(new ItemEstoque(50, 15));
 
-        List <ItemVenda> itens = new ArrayList < > (3);
+        List <ItemVenda> itens = new ArrayList<>(3);
         itens.add(new ItemVenda(1, 10, 2, 1000));
         itens.add(new ItemVenda(2, 30, 3, 2000));
         itens.add(new ItemVenda(3, 50, 1, 1500));
