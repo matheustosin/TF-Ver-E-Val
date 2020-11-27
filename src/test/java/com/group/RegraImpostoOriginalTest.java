@@ -9,11 +9,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-public class RegraImpostoOriginalTest {
+class RegraImpostoOriginalTest {
 
     @ParameterizedTest
     @MethodSource("entradas")
-    public void calculaDezPorcento(List<ItemVenda> itens, double resultadoEsperado) {
+    void calculaDezPorcento(List<ItemVenda> itens, double resultadoEsperado) {
         RegraImposto regraImpostoOriginal = new RegraImpostoOriginal();
         double impostoCalculado = regraImpostoOriginal.calcular(itens);
         assertEquals(resultadoEsperado, impostoCalculado);

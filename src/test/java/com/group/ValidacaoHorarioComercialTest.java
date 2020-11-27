@@ -14,10 +14,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-public class ValidacaoHorarioComercialTest {
+class ValidacaoHorarioComercialTest {
 
     @Test
-    public void validaTresProdutosExistentes() {
+    void validaTresProdutosExistentes() {
         Produtos produtos = mock(Produtos.class);
         when(produtos.recupera(10)).thenReturn(new Produto(10, "Prod10", 1000.0));
         when(produtos.recupera(30)).thenReturn(new Produto(30, "Prod30", 2000.0));
@@ -39,7 +39,7 @@ public class ValidacaoHorarioComercialTest {
 
     @ParameterizedTest
     @MethodSource("validaRetornoExcecao")
-    public void validaExcecoes(Produto produto, ItemEstoque itemEstoque, ItemVenda itemVenda) {
+    void validaExcecoes(Produto produto, ItemEstoque itemEstoque, ItemVenda itemVenda) {
         Produtos produtosMock = mock(Produtos.class);
         when(produtosMock.recupera(produto.getCodigo())).thenReturn(produto);
 

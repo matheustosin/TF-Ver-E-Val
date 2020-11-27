@@ -20,7 +20,7 @@ public class ServicoDeVendas {
     }
 
     public Double calculaSubtotal(List<ItemVenda> itens) {
-        return (itens.stream().mapToDouble(it -> it.getValorVendido()).sum());
+        return (itens.stream().mapToDouble(ItemVenda::getValorVendido).sum());
     }
 
     public Double calculaImpostos(List<ItemVenda> itens) {

@@ -12,12 +12,10 @@
   <properties>
     <java.version>11</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
     <sonar.projectKey>matheustosin_TF-Ver-E-Val</sonar.projectKey>
     <sonar.organization>matheustosin</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
-
 
   <dependencies>
     <dependency>

@@ -12,12 +12,11 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-public class ServicoDeVendasTest {
+class ServicoDeVendasTest {
     private ServicoDeVendas servicoDeVendas;
 
     @Test
-    public void calculaSubtotal() {
-        
+    void calculaSubtotal() {
         RegraImposto regraImposto = mock(RegraImposto.class);
         FactoryValidacao factoryValidacao = mock(FactoryValidacao.class);
 
@@ -41,11 +40,10 @@ public class ServicoDeVendasTest {
     }
 
     @Test
-    public void calculaImpostosOriginal() {
-        
+    void calculaImpostosOriginal() {
         RegraImpostoOriginal regraImposto = mock(RegraImpostoOriginal.class);
         when(regraImposto.calcular(anyList())).thenReturn(200.0);
-       
+
         FactoryValidacao factoryValidacao = mock(FactoryValidacao.class);
 
         Produtos produtos = mock(Produtos.class);
@@ -59,11 +57,10 @@ public class ServicoDeVendasTest {
     }
 
     @Test
-    public void calculaImpostosComprasGrandes() {
-        
+    void calculaImpostosComprasGrandes() {
         RegraImpostoComprasGrandes regraImposto = mock(RegraImpostoComprasGrandes.class);
         when(regraImposto.calcular(anyList())).thenReturn(2000.0);
-       
+
         FactoryValidacao factoryValidacao = mock(FactoryValidacao.class);
 
         Produtos produtos = mock(Produtos.class);
@@ -77,11 +74,10 @@ public class ServicoDeVendasTest {
     }
 
     @Test
-    public void calculaPrecoFinalImpostoComprasGrandes() {
-        
+    void calculaPrecoFinalImpostoComprasGrandes() {
         RegraImpostoComprasGrandes regraImposto = mock(RegraImpostoComprasGrandes.class);
         when(regraImposto.calcular(anyList())).thenReturn(2000.0);
-       
+
         FactoryValidacao factoryValidacao = mock(FactoryValidacao.class);
 
         Produtos produtos = mock(Produtos.class);
@@ -98,11 +94,10 @@ public class ServicoDeVendasTest {
     }
 
     @Test
-    public void todosValores() {
-        
+    void todosValores() {
         RegraImpostoComprasGrandes regraImposto = mock(RegraImpostoComprasGrandes.class);
         when(regraImposto.calcular(anyList())).thenReturn(2000.0);
-       
+
         FactoryValidacao factoryValidacao = mock(FactoryValidacao.class);
 
         Produtos produtos = mock(Produtos.class);
