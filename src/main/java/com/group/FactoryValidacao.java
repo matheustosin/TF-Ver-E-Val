@@ -11,11 +11,11 @@ public class FactoryValidacao {
     }
 
     public RegraValidacao getRegraValidacao(){
-        if (LocalTime.parse("08:00").isAfter(agora) &&
-            LocalTime.parse("06:00").isBefore(agora)){
+        if (LocalTime.of(7, 59, 59).isBefore(agora) &&
+            LocalTime.of(18, 0, 1).isAfter(agora)){
                 return new ValidacaoHorarioComercial();
         }else{
             return new ValidacaoForaHorarioComercial();
         }
-    } 
+    }
 }

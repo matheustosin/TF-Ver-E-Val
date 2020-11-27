@@ -21,21 +21,23 @@ public class RegraImpostoComprasGrandesTest {
 
     private static Stream<Arguments> entradas() {
         return Stream.of(
+            Arguments.of(List.of(), 0),
+            Arguments.of(List.of(new ItemVenda(1, 10, 1, 1000)), 100),
             Arguments.of(
-                List.of(), 0,
-                List.of(new ItemVenda(1, 10, 1, 1000)), 100,
                 List.of(
                     new ItemVenda(1, 10, 1, 1000),
                     new ItemVenda(2, 20, 3, 2000),
                     new ItemVenda(3, 30, 5, 3000)
-                ), (1500 + 600 + 100),
+                ), (300 + 200 + 100)
+            ),
+            Arguments.of(
                 List.of(
                     new ItemVenda(1, 10, 1, 1000),
                     new ItemVenda(2, 20, 3, 2000),
                     new ItemVenda(3, 30, 5, 3000),
                     new ItemVenda(4, 40, 7, 4000),
                     new ItemVenda(5, 50, 9, 5000)
-                ), (4500 + 2800 + 750 + 300 + 50)
+                ), (500 + 400 + 300 + 100 + 50)
             )
         );
     }

@@ -20,7 +20,7 @@ public class ItemEstoque {
     public int getNroItem(){
         return nroItem;
     }
-    
+
     public int getCodigoProduto() {
         return codigoProduto;
     }
