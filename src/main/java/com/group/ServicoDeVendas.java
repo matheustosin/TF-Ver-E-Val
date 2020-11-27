@@ -19,20 +19,20 @@ public class ServicoDeVendas {
         factoryValidacao.getRegraValidacao().valida(produtos, estoque, itens);
     }
 
-    public Integer calculaSubtotal(List<ItemVenda> itens) {
-        return (int) (itens.stream().mapToDouble(it -> it.getValorVendido()).sum());
+    public Double calculaSubtotal(List<ItemVenda> itens) {
+        return (itens.stream().mapToDouble(it -> it.getValorVendido()).sum());
     }
 
-    public Integer calculaImpostos(List<ItemVenda> itens) {
-        return (int) regraImposto.calcular(itens);
+    public Double calculaImpostos(List<ItemVenda> itens) {
+        return regraImposto.calcular(itens);
     }
 
-    public Integer calculaPrecoFinal(List<ItemVenda> itens) {
+    public Double calculaPrecoFinal(List<ItemVenda> itens) {
         return calculaSubtotal(itens) + calculaImpostos(itens);
     }
 
-    public Integer[] todosValores(List<ItemVenda> itens) {
-        Integer[] valores = new Integer[3];
+    public Double[] todosValores(List<ItemVenda> itens) {
+        Double[] valores = new Double[2];
         valores[0] = calculaSubtotal(itens);
         valores[1] = calculaImpostos(itens);
         return valores;
