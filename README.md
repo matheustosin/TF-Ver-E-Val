@@ -61,6 +61,7 @@ Para inferir a opinião do grupo, será necessário expor o que foi feito para g
 - Remoção do código duplicado das classes de validação -> implementado o padrão de Form Template Method (https://refactoring.guru/form-template-method)
 - Trocamos as chamadas de métodos explicitas nos lambdas por inferência de métodos;
 - Implementação do Sonarcloud: https://sonarcloud.io/dashboard?id=matheustosin_TF-Ver-E-Val
+
 Referente as outras ferramentas, foi utilizado, como o padrão do T1 das disciplina, um *plugin* junto com o `Maven`, o `jacoco`, no qual permite acompanhar e gerar relatórios de cobertura de código da nossa classe alvo.
 
 No geral, com base de que cada conjunto de classes usamos técnicas diferentes, podemos concluir que conseguimos cobrir 100% da aplicação onde foram realizados os testes unitários. Usamos Junit 5, Mockito e exploramos alguns testes parametrizados onde vimos que seria possível aplicar, atendendo as expectativas do esperado.
