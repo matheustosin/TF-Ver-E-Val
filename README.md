@@ -40,6 +40,9 @@ Ex.: Classe: método().
 - ValidacaoForaHorarioComercial: validaExcecoes();
 - ValidacaoHorarioComercial: validaExcecoes().
 
+### Teste de integração
+- ServicoDeVendasIntegrationTest: testaCalculoImposto() .
+
 ## Ferramentas
 ### Mockito 
 - ServicoDeVendasTest: todos os métodos da classe;
@@ -60,9 +63,17 @@ Para inferir a opinião do grupo, será necessário expor o que foi feito para g
 - Remoção de visibilidade publica dos testes, porque o Junit 5 já abrange isso
 - Remoção do código duplicado das classes de validação -> implementado o padrão de Form Template Method (https://refactoring.guru/form-template-method)
 - Trocamos as chamadas de métodos explicitas nos lambdas por inferência de métodos;
+- Teste de integração foi realizado em somente uma classe.
 - Implementação do Sonarcloud: https://sonarcloud.io/dashboard?id=matheustosin_TF-Ver-E-Val
 
-Referente as outras ferramentas, foi utilizado, como o padrão do T1 das disciplina, um *plugin* junto com o `Maven`, o `jacoco`, no qual permite acompanhar e gerar relatórios de cobertura de código da nossa classe alvo.
+Após executar o Sonarcloud, foram atribuidas algumas correções de code smells e código duplicado:
+- Remoção de espaços em excesso;
+- Acrecentou default no retorno do método;
+- Acrescentou final na declaração da variável causa;
+- Remoção de códigos duplicados;
+- Remoção do public de classes de teste e metodos;
 
+Referente as outras ferramentas, foi utilizado, como o padrão do T1 das disciplina, um *plugin* junto com o `Maven`, o `jacoco`, no qual permite acompanhar e gerar relatórios de cobertura de código da nossa classe alvo.
+ 
 No geral, com base de que cada conjunto de classes usamos técnicas diferentes, podemos concluir que conseguimos cobrir 100% da aplicação onde foram realizados os testes unitários. Usamos Junit 5, Mockito e exploramos alguns testes parametrizados onde vimos que seria possível aplicar, atendendo as expectativas do esperado.
-Referente ao Sonarcloud, se trata de uma ferramenta muito boa pra análise estática de código, porém o único contraponto é que não suporta análise automática com Java. Então a gente precisou rodar um comando no Maven sempre que queríamos realizar um Scan. 
+Referente ao Sonarcloud, se trata de uma ferramenta muito boa pra análise estática de código, porém o único contraponto é que não suporta análise automática com Java. Então a gente precisou rodar um comando no Maven sempre que queríamos realizar um Scan. O teste de integração foi aplicado em apenas uma classe, a ServicoDeVendasIntegrationTest, mas poderia ter sido aplicado em metodos que tenha dependência de outras classes.
