@@ -2,8 +2,10 @@ package com.group;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -111,5 +113,26 @@ class ServicoDeVendasTest {
 
         this.servicoDeVendas = new ServicoDeVendas(produtos, estoque, regraImposto, factoryValidacao);
         assertArrayEquals(new Double[] {4500.0, 2000.0}, servicoDeVendas.todosValores(itens));
+    }
+
+    @Test
+    void testaValidacao() {
+        RegraImpostoComprasGrandes regraImposto = mock(RegraImpostoComprasGrandes.class);
+        FactoryValidacao factoryValidacao = mock(FactoryValidacao.class);
+        Produtos produtos = mock(Produtos.class);
+        Estoque estoque = mock(Estoque.class);
+        RegraValidacao validacao = mock(ValidacaoHorarioComercial.class);
+
+        List<ItemVenda> itens = new ArrayList<>(3);
+        itens.add(new ItemVenda(1, 10, 2, 1000));
+        itens.add(new ItemVenda(2, 30, 3, 2000));
+        itens.add(new ItemVenda(3, 50, 1, 1500));
+
+        when(factoryValidacao.getRegraValidacao()).thenReturn(validacao);
+
+        this.servicoDeVendas = new ServicoDeVendas(produtos, estoque, regraImposto, factoryValidacao);
+        servicoDeVendas.valida(itens);
+
+        verify(validacao).valida(produtos, estoque, itens);
     }
 }
