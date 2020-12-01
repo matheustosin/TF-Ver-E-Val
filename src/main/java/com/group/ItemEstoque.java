@@ -37,7 +37,7 @@ public class ItemEstoque {
         if (quantidade <= 0) {
             throw new SistVendasException(SistVendasException.Causa.QUANTIDADE_INVALIDA);
         } else {
-            this.quantidade = quantidade;
+            this.quantidade += quantidade;
         }
     }
 
@@ -48,7 +48,7 @@ public class ItemEstoque {
             if (this.quantidade - quantidade < 0) {
                 throw new SistVendasException(SistVendasException.Causa.QUANTIDADE_INSUFICIENTE);
             } else {
-                this.quantidade += quantidade;
+                this.quantidade -= quantidade;
             }
         }
     }
